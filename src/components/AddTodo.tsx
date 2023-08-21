@@ -7,6 +7,8 @@ export const AddTodo = () => {
   // const [input, setInput] = useState<string | number>('')
   const [input, setInput] = useState<string>("")
   const inputRef = useRef<HTMLInputElement>(null)
+  const [todos, setTodos] = useState<string[]>([])
+  const {addTodoGayathri} = useTodo()
 
   useEffect(() => {
     if (inputRef.current) {
@@ -16,13 +18,22 @@ export const AddTodo = () => {
 
   const handleSubmission=(e:React.FormEvent)=>{
     e.preventDefault();
-    console.log("Gayu kutti")
+    if(input.trim() !== ''){
+     addTodoGayathri(input)
+      setInput('')
+      toast.success("Gayathri added todo list successfully")
+    }
+    else{
+      toast.error("Gayathri could not add to the list because todo cannot be empty")
+    }
+    console.log(todos);
+    
   }
 
   return (
     <form onSubmit={handleSubmission}>
       <div className="flex items-center w-full max-w-lg gap-2 p-5 m-auto">
-        <input
+        <Input
           ref={inputRef}
           value={input}
           onChange={e => setInput(e.target.value)}
