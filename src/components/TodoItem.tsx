@@ -12,11 +12,8 @@ import { motion } from 'framer-motion'
 
 export const TodoItem = (props: { todo: Todo }) => {
   const { todo } = props
-
   const [editingTodoId,setEditingTodoId]= useState<string>("")
-
   const [editingTodoText, setEditingTodoText]= useState<string>("")
-
   const {deleteTodo,editTodo,updateTodoStatus}=useTodo();
 
   const editInputRef = useRef<HTMLInputElement>(null);
@@ -30,7 +27,6 @@ export const TodoItem = (props: { todo: Todo }) => {
   const handleEdit=(todoId:string,todoText:string)=>{
     setEditingTodoId(todoId)
     setEditingTodoText(todoText)
-    editTodo(todoId,todoText)
    
   }
 
