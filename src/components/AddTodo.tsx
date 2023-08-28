@@ -21,6 +21,9 @@ export const AddTodo = () => {
     if(input.trim() !== ''){
      addTodoGayathri(input)
       setInput('')
+      if (inputRef.current) {
+        inputRef.current.focus()
+      }
       toast.success("Gayathri added todo list successfully")
     }
     else{

@@ -30,7 +30,7 @@ export const TodoItem = (props: { todo: Todo }) => {
   const handleEdit=(todoId:string,todoText:string)=>{
     setEditingTodoId(todoId)
     setEditingTodoText(todoText)
-    //editTodo(todoId,todoText)
+    editTodo(todoId,todoText)
    
   }
 
